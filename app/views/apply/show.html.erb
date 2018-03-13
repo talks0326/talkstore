@@ -1,0 +1,10 @@
+<div>
+	<td><%= image_tag(@ticket.user.profile.photo.photo_type == 1 ? @ticket.user.profile.photo.data.url(:medium,false) : @ticket.user.profile.photo.url) %></td><br/>
+	<td><%= @ticket.user.profile.name %></td><br/>
+	<td><%= @ticket.user.profile.birthday %></td><br/>
+	<td><%= @ticket.user.profile.birth_place %></td><br/>
+	<td><%= @ticket.place %></td><br/>
+	<td><%= @ticket.user.profile.self_introduction %></td><br/>
+	<td><%= @ticket.talk_theme %></td><br/>
+	<%= link_to "申込",apply_offer_path(@ticket) %>
+</div>

@@ -1,0 +1,49 @@
+<h3><%= @ticket.user.profile.name %></h3>
+<h4><%= @ticket.talk_theme %></h4>
+
+<h1 id="time"></h1>
+
+<div class="review_to" style="display: none;">
+	<%= link_to "レビューへ進む",new_review_path(@ticket) %>
+</div>
+<%= link_to "マッチング終わったことにする",time_end_get_path(@ticket) %>
+
+<script>
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            display.textContent = "終了しました！"
+            var hostUrl= "<%= time_end_path(@ticket) %>";
+			var csrf_token = "<%= form_authenticity_token %>"
+			$.ajax({
+			  url: hostUrl,
+			  type:'POST',
+			  dataType: 'json',
+			  headers: {
+			    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			  },
+			  timeout:3000,
+			}).done(function(data) {
+			   $(".review_to").show();
+			}).fail(function(XMLHttpRequest, textStatus, errorThrown) {
+			               //alert("error");
+			})
+        }
+    }, 1000);
+}
+
+$(document).on("turbolinks:load",function(){
+	var times = <%= @left_second %>,
+        display = document.querySelector('#time');
+    startTimer(times, display);
+});
+</script>

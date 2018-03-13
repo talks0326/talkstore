@@ -1,0 +1,44 @@
+<%= form_with(model: review,url: url, local: true) do |form| %>
+  <% if review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :user_id,value: current_user.id %>
+
+  <div class="form-group">
+    <label>相手の印象</label>
+    <%= form.check_box :impression %>
+  </div>
+
+  <div class="form-group">
+    <label>会話の内容</label>
+    <%= form.check_box :conversation %>
+  </div>
+
+  <div class="form-group">
+    <label>また会いたい</label>
+    <%= form.check_box :want_meet %>
+  </div>
+
+  <div class="form-group">
+    <label>システムの利用しやすさ</label>
+    <%= form.check_box :usability %>
+  </div>
+
+  <div class="form-group">
+    <label>また使いたい</label>
+    <%= form.check_box :reuse %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

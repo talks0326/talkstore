@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+$text-color: #212121;
+$text-brand: #000;
+$text-gray: #808080;
+$font-family:  "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo ,"游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic","ＭＳ Ｐゴシック" ,"MS PGothic", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+$font-serif: Garamond, "Times New Roman", "游明朝", "Yu Mincho", "游明朝体", "YuMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "HiraMinProN-W3", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+$font-size-base: 16px;
+//$font-size-base: 18px;
+$font-size-sm: 14px;
+$font-size-xs: 12px;
+$font-size-md: 18px;
+$font-size-lg: 20px;
+$font-size-xl: 24px;
+//$line-height-base: 1.6;
+$line-height-base: 1.8;
+
+/* color */
+$brand-primary: #517AC0;
+$brand-red: #E23636;
+$brand-orange: #F5982A;
+$text-link-color: $brand-primary;
+$brand-body-color: #88929a;
+$brand-selection-color: #f9f6f0;
+$red: #cc0000;
+
+// sns color
+$color-facebook: #3b5998;
+$color-twitter: #55acee;
+$color-line: #00C300;
+$color-instagram: #125688;
+
+// アラート系
+$color-alert: desaturate(lighten($brand-primary, 25), 40);
+$color-alert-bg: lighten($brand-primary, 50);
+$color-alert-warning: #E5C046;
+$color-alert-bg-warning: saturate(lighten($color-alert-warning, 35), 20);
+$color-alert-success: #99C76E;
+$color-alert-bg-success: saturate(lighten($color-alert-success, 35), 20);
+
+//スクリーンサイズ
+$screen-lg: 1200px;
+$screen-md: 1050px;
+$screen-sm: 768px;
+$screen-xs: 640px;
+$screen-xxs: 320px;

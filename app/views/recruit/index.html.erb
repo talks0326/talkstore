@@ -1,0 +1,9 @@
+<% @ticket_offers.each do |to| %>
+	<%= link_to recruit_show_path(to.offer) do %>
+	<div>
+		<%= image_tag(to.offer.user.profile.photo.photo_type == 1 ? to.offer.user.profile.photo.data.url(:medium,false) : to.offer.user.profile.photo.url) %>
+		<td><%= to.offer.user.profile.name %></td>
+		<td><%= to.offer.user.profile.birthday %></td>
+	</div>
+	<% end %>
+<% end %>

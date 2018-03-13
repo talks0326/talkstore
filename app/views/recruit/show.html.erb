@@ -1,0 +1,9 @@
+<div>
+	<td><%= image_tag(@offer.user.profile.photo.photo_type == 1 ? @offer.user.profile.photo.data.url(:medium,false) : @offer.user.profile.photo.url) %></td><br/>
+	<td><%= @offer.user.profile.name %></td><br/>
+	<td><%= @offer.user.profile.birthday %></td><br/>
+	<td><%= @offer.user.profile.birth_place %></td><br/>
+	<td><%= @offer.user.profile.self_introduction %></td><br/>
+	<td><%= @offer.user.profile.default_talk_theme %></td><br/>
+	<%= link_to "選択する",recruit_choose_path(@offer) %>
+</div>

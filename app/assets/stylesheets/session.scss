@@ -1,0 +1,59 @@
+.pageBody{
+
+	div{
+		text-align: center;
+
+		&.logo{
+			padding-top: 12vh;
+			img{
+				width: 30vw;
+			}
+		}
+
+		&.login{
+			width: 17vw;
+		    margin: 12vh auto;
+		    padding: 10px;
+		    border-radius: 25px;
+		    background-color: #415dc0;
+
+		    a{
+		    	color: #fff;
+		    	text-decoration: none;
+		    	font-weight: bold;
+		    }
+		}
+
+		&.form-group{
+			&.image{
+			    margin: 0 auto;
+			    padding: 2vw;
+
+				img{
+					border-radius: 50%;
+				}
+
+				input.upload{
+					display: none;
+				}
+			}
+
+			input[type="text"]{
+			    background: #ffb901;
+			    border: 1px solid #fff;
+			    border-top: 0;
+			    border-right: 0;
+			    border-left: 0;
+			}
+
+			&.name{
+				input{
+					color: #000;
+    				font-size: 1.3em;
+    				text-align: center;
+    				font-weight: bold;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+<% @tickets.each do |t| %>
+	<%= link_to apply_show_path(t) do %>
+	<div>
+		<%= image_tag(t.user.profile.photo.photo_type == 1 ? t.user.profile.photo.data.url(:medium,false) : t.user.profile.photo.url) %>
+		<td><%= t.user.profile.name %></td>
+		<td><%= t.user.profile.birthday %></td>
+		<td><%= t.place %></td>
+		<td><%= t.talk_theme %></td>
+	</div>
+	<% end %>
+<% end %>
