@@ -18,6 +18,6 @@
 class Photo < ApplicationRecord
 	belongs_to :photable,polymorphic: true, optional: true
 
-	has_attached_file :data, styles: { sp_large: "800x450#",sp_thumb: "160x90#",large:"400x400#" , thumb: "100x100#" }, default_url: "missing.png"
+	has_attached_file :data, styles: { sp_large: "800x450#",sp_thumb: "160x90#",large:"400x400#",medium:"200x200#" , thumb: "100x100#" }, default_url: "missing.png"
 	validates_attachment_content_type :data, content_type: /\Aimage\/.*\z/
 end
