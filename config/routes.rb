@@ -51,6 +51,8 @@
 # 
 
 Rails.application.routes.draw do
+  get 'pages/privacy'
+
   get 'time_keeper/:id' => "time_keeper#show",as: "time_keeper"
   post 'time_keeper/:id/time_end' => "time_keeper#time_end",as: "time_end"
   get 'time_keeper/:id/time_end' => "time_keeper#time_end",as: "time_end_get"
@@ -86,4 +88,6 @@ Rails.application.routes.draw do
   post "review/:ticket_id/create" => "reviews#create",as: "create_review"
   resources :tickets
   match "user_tickets" => "tickets#user_tickets",as: "user_tickets", via: [:post, :patch]
+
+  get "privacy" => "pages#privacy",as: "privacy"
 end
