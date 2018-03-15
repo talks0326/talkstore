@@ -38,9 +38,11 @@ class User < ApplicationRecord
 	has_many :messages
 	has_many :offers
 	has_many :reviews
-	has_many :tickets
+	#has_many :tickets
 	has_many :point_transitions
 	has_many :user_tries
+
+
 
 	def self.find_for_oauth(auth)
 		user = User.where(uid: auth.uid, provider: auth.provider).first
@@ -67,5 +69,10 @@ class User < ApplicationRecord
 		end
 	
 		user
+	end
+
+	def check_ticket_offers?(ticket)
+		offers = self.user_tries.last.offers
+		offers.map{|o| o.ticket_id}.include?(ticket.id)
 	end
 end

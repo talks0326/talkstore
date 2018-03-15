@@ -1,3 +1,44 @@
 // Place all the styles related to the Top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.wrapper.main{
+
+	header{
+		height: 60px;
+		background-image: asset-url("logo.png");
+		background-repeat: no-repeat;
+	    background-position: center;
+	    background-size: contain;
+	    border-bottom: 1px solid #fff;
+	    margin-bottom: 20px;
+	}
+
+	.pageBody{
+		margin-top: 60px;
+		border-radius: 8px;
+
+		.form-group{
+			input[type=checkbox].tickets{
+				display:none;
+			}
+		}
+
+		label.label-btn{
+			display: block;
+		    width: 50%;
+		    margin: 10px auto;
+		    background-color: #ffb901;
+		    border-radius: 8px;
+		    color: #fff;
+		    font-weight: bold;
+		    box-shadow: 2px 2px gray;
+		    padding: 10px 0;
+
+		    &.checked,:hober{
+		    	box-shadow: 2px 2px gray inset;
+		    	background-color: #e0a200;
+		    }
+		}
+	}	
+}

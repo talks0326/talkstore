@@ -22,3 +22,11 @@ window.addEventListener('load', () => {
        return false;
    }
 });
+
+$(document).on("change","input[type=checkbox].tickets",function(){
+	if ($(this).prop('checked')) {
+		$(this).next("label").addClass("checked");
+	}else{
+		$(this).next("label").removeClass("checked");
+	}
+});

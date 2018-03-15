@@ -11,7 +11,7 @@ class ApplyController < ApplicationController
 
   def offer
   	ticket = Ticket.find(params[:id])
-  	offer = current_user.offers.build
+  	offer = current_user.user_tries.last.offers.build
   	offer.ticket_id = @ticket.id
   	if offer.save
   		to = ticket.ticket_offers.build
@@ -20,6 +20,10 @@ class ApplyController < ApplicationController
   		current_user.user_tries.last.state_machine.transition_to(:apply)
   	end
   	redirect_to root_path
+  end
+
+  def matthing
+    
   end
 
   private

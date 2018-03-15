@@ -1,3 +1,162 @@
 // Place all the styles related to the apply controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper.main{
+	height: auto;
+	min-height: 100vh;
+
+	header{
+		.right-content{
+			float: right;
+			padding: 5px;
+
+			a{
+				display: block;
+				width: 50px;
+				height: 50px;
+
+				img{
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.pageBody.ticket{
+		margin-top: 10px;
+		height: auto;
+
+		&.show{
+			.ticket-show{
+				position:relative;
+
+				.check{
+					width: 50px;
+				    height: 50px;
+				    position: absolute;
+				    right: 10px;
+				    top: 10px;
+
+				    img{
+				    	border-radius: 50%;
+	    				width: 100%;
+				    }
+				}
+			}
+		}
+
+		a,.ticket-show{
+			display: block;
+			background: #fff;
+			padding: 20px;
+			width: 600px;
+			margin: 0 auto;
+			text-decoration: none;
+			border-radius: 6px;
+			margin-bottom: 10px;
+			position: relative;
+
+			&.mattching{
+				p{
+					color: #ffb901;
+					font-weight: bold;
+
+					&.alert{
+						text-align: left;
+					}
+				}
+			}
+
+			&.submit{
+				margin-top: 20px;
+			    padding: 5px 20px;
+			    border-radius: 6px;
+			    background-color: #ffb901;
+			    color: #fff;
+			    font-weight: bold;
+			    width: 80%;
+			    box-shadow: 2px 2px gray;
+
+			    &:hover{
+				    box-shadow: 2px 2px gray inset;
+			    	background-color: #e0a200;
+			    }
+			}
+
+			.flexbox{
+				align-items: flex-end;
+				display: flex;
+				justify-content: center;
+			}
+
+			.check{
+				width: 50px;
+			    height: 50px;
+			    position: absolute;
+			    right: 10px;
+			    top: 10px;
+
+			    img{
+			    	border-radius: 50%;
+    				width: 100%;
+			    }
+			}
+
+			.user-section{
+
+				.image{
+					width: 150px;
+					height: 150px;
+					margin-right: 20px;
+
+					img{
+						width: 100%;
+						border-radius: 50%;
+					}
+				}
+
+				.right-column{
+					.ticket-info{
+						margin-bottom: 40px;
+						p{
+							margin: 0;
+						    padding: 5px 20px;
+						    border-radius: 6px;
+						    background-color: #ffb901;
+						    color: #fff;
+						    font-weight: bold;
+						    margin-right: 20px;
+						}
+					}
+
+					.user-content{
+						margin-bottom: 20px;
+						p{
+							margin: 0 20px 0 0;
+							color: #000;
+
+							&.name{
+								color: #000;
+								font-weight: bold;
+								font-size: 1.10em;
+							}
+						}
+					}
+				}
+			}
+
+			.talk_theme{
+				padding: 20px 40px 0 40px;
+
+				p{
+					margin: 0;
+				    color: #ffb901;
+				    font-weight: bold;
+				    border: 1px solid #ffb901;
+				    border-radius: 6px;
+				    padding: 5px;
+				}
+			}
+		}
+	}
+}

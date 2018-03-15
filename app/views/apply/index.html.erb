@@ -1,11 +1,43 @@
-<% @tickets.each do |t| %>
-	<%= link_to apply_show_path(t) do %>
-	<div>
-		<%= image_tag(t.user.profile.photo.photo_type == 1 ? t.user.profile.photo.data.url(:medium,false) : t.user.profile.photo.url) %>
-		<td><%= t.user.profile.name %></td>
-		<td><%= t.user.profile.birthday %></td>
-		<td><%= t.place %></td>
-		<td><%= t.talk_theme %></td>
+<div class="wrapper main">
+  	<header>
+  		<div class="right-content">
+  			<div class="user"><%= link_to profile_edit_path do %><%= image_tag("user-icon.png") %><% end %></div>
+  			<% if false %><div class="notice"></div><% end %>
+  		</div>
+  	</header>
+  	<div class="pageBody ticket">
+		<% @tickets.each do |t| %>
+			<%= link_to apply_show_path(t) do %>
+			<% if current_user.check_ticket_offers?(t) %>
+			<div class="check">
+				<%= image_tag("check.png") %>
+			</div>
+			<% end %>
+			<div class="user-section flexbox">
+				<div class="image">
+					<%= image_tag(t.user_try.user.profile.photo.photo_type == 1 ? t.user_try.user.profile.photo.data.url(:medium,false) : t.user_try.user.profile.photo.url) %>	
+				</div>
+				<div class="right-column">
+					<div class="ticket-info flexbox">
+						<p>
+							<% if t.time.strftime("%H") == "00" %>
+								時間未指定
+							<% else %>
+								<%= t.time.strftime("%H:%M") + " ~ " + (t.time.strftime("%H").to_i + 1).to_s + ":00" %>
+							<% end %>
+						</p>
+						<p><%= t.place %></p>	
+					</div>
+					<div class="user-content flexbox">
+						<p class="name"><%= t.user_try.user.profile.name %>(<%= get_age(t.user_try.user.profile.birthday) %>)</p>
+						<p><%= t.user_try.user.profile.birth_place %>出身</p>
+					</div>	
+				</div>
+			</div>
+			<div class="talk_theme">
+				<p><%= t.talk_theme %></p>
+			</div>
+			<% end %>
+		<% end %>
 	</div>
-	<% end %>
-<% end %>
+</div>

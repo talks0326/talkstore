@@ -45,6 +45,8 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
+        @profile.photo.data.blank? ? @profile.photo.update_attributes(photo_type: 2) : @profile.photo.update_attributes(photo_type: 1)
+
         current_user.user_tries.last.state_machine.transition_to(:pending)
         format.html { redirect_to root_path, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :ok, location: @profile }

@@ -15,7 +15,7 @@
 #
 
 class Ticket < ApplicationRecord
-	belongs_to :user,optional: true
+	belongs_to :user_try,optional: true
 	has_many :ticket_offers
 	has_many :messages
 	has_many :reviews

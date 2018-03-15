@@ -3,7 +3,7 @@ class RecruitController < ApplicationController
   before_action :set_ticket_offer,only: [:show,:choose]
   before_action :set_ticket
   def index
-    @ticket_offers = @ticket.ticket_offers
+    @ticket_offers = TicketOffer.where(ticket_id: @tickets.map{|t| t.id})
   end
 
   def show
@@ -13,17 +13,19 @@ class RecruitController < ApplicationController
     @ticket.offer_id = @offer.id
     @ticket.end = true
     if @ticket.save
-      @ticket.user.user_tries.last.state_machine.transition_to(:establish_host)
-      @offer.user.user_tries.last.state_machine.transition_to(:establish_guest)
+      @ticket.user_try.tickets.update_all(end: true)
+      @ticket.user_try.state_machine.transition_to(:establish_host)
+      @offer.user_try.state_machine.transition_to(:establish_guest)
     end
   end
 
   private
   def set_ticket
-    @ticket = current_user.tickets.last
+    @tickets = current_user.user_tries.last.tickets
   end 
   
   def set_ticket_offer
     @offer = Offer.find(params[:id])
+    @ticket = @offer.ticket_offer.ticket
   end
 end

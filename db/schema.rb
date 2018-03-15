@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id", null: false
+    t.integer "ticket_id", null: false
     t.boolean "impression"
     t.boolean "conversation"
     t.boolean "want_meet"
@@ -111,7 +112,7 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "tickets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "user_id", null: false
+    t.integer "user_try_id", null: false
     t.string "place", null: false
     t.integer "point", null: false
     t.datetime "time", null: false

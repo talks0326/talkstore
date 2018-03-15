@@ -3,9 +3,11 @@
 #                           Prefix Verb     URI Pattern                             Controller#Action
 #                      time_keeper GET      /time_keeper/:id(.:format)              time_keeper#show
 #                         time_end POST     /time_keeper/:id/time_end(.:format)     time_keeper#time_end
+#                     time_end_get GET      /time_keeper/:id/time_end(.:format)     time_keeper#time_end
 #                         location GET      /locations/:id(.:format)                locations#show
 #                 location_current POST     /locations/:id/current(.:format)        locations#current
 #                location_check_in GET      /locations/:id/check_in(.:format)       locations#check_in
+#              location_checked_in GET      /locations/:id/checked_in(.:format)     locations#checked_in
 #                     message_room GET      /messages/:id(.:format)                 messages#show
 #                    messages_post POST     /messages/:id/post(.:format)            messages#post
 #                    recruit_index GET      /recruit/index(.:format)                recruit#index
@@ -34,17 +36,18 @@
 #                                  DELETE   /users(.:format)                        devise/registrations#destroy
 #                                  POST     /users(.:format)                        devise/registrations#create
 #                    profiles_edit GET      /profiles/edit(.:format)                profiles#edit
+#                          profile GET      /profiles(.:format)                     profiles#show
 #                  profiles_update PATCH    /profiles/update(.:format)              profiles#update
 #                       new_review GET      /review/:ticket_id/new(.:format)        reviews#new
 #                    create_review POST     /review/:ticket_id/create(.:format)     reviews#create
-#                          reviews GET      /reviews(.:format)                      reviews#index
-#                                  POST     /reviews(.:format)                      reviews#create
-#                                  GET      /reviews/new(.:format)                  reviews#new
-#                      edit_review GET      /reviews/:id/edit(.:format)             reviews#edit
-#                           review GET      /reviews/:id(.:format)                  reviews#show
-#                                  PATCH    /reviews/:id(.:format)                  reviews#update
-#                                  PUT      /reviews/:id(.:format)                  reviews#update
-#                                  DELETE   /reviews/:id(.:format)                  reviews#destroy
+#                          tickets GET      /tickets(.:format)                      tickets#index
+#                                  POST     /tickets(.:format)                      tickets#create
+#                       new_ticket GET      /tickets/new(.:format)                  tickets#new
+#                      edit_ticket GET      /tickets/:id/edit(.:format)             tickets#edit
+#                           ticket GET      /tickets/:id(.:format)                  tickets#show
+#                                  PATCH    /tickets/:id(.:format)                  tickets#update
+#                                  PUT      /tickets/:id(.:format)                  tickets#update
+#                                  DELETE   /tickets/:id(.:format)                  tickets#destroy
 # 
 
 Rails.application.routes.draw do
@@ -75,10 +78,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get "profiles/edit" => "profiles#edit"
+  get "profiles/edit" => "profiles#edit",as: "profile_edit"
+  get "profiles" => "profiles#show",as: "profile"
   patch "profiles/update" => "profiles#update"
 
   get "review/:ticket_id/new" => "reviews#new",as: "new_review"
   post "review/:ticket_id/create" => "reviews#create",as: "create_review"
   resources :tickets
+  match "user_tickets" => "tickets#user_tickets",as: "user_tickets", via: [:post, :patch]
 end

@@ -1,9 +1,38 @@
-<% @ticket_offers.each do |to| %>
-	<%= link_to recruit_show_path(to.offer) do %>
-	<div>
-		<%= image_tag(to.offer.user.profile.photo.photo_type == 1 ? to.offer.user.profile.photo.data.url(:medium,false) : to.offer.user.profile.photo.url) %>
-		<td><%= to.offer.user.profile.name %></td>
-		<td><%= to.offer.user.profile.birthday %></td>
+<div class="wrapper main">
+  	<header>
+  		<div class="right-content">
+  			<div class="user"><%= link_to profile_edit_path do %><%= image_tag("user-icon.png") %><% end %></div>
+  			<% if false %><div class="notice"></div><% end %>
+  		</div>
+  	</header>
+  	<div class="pageBody ticket">
+		<% @ticket_offers.each do |to| %>
+			<%= link_to recruit_show_path(to.offer) do %>
+			<div class="user-section flexbox">
+				<div class="image">
+					<%= image_tag(to.offer.user_try.user.profile.photo.photo_type == 1 ? to.offer.user_try.user.profile.photo.data.url(:medium,false) : to.offer.user_try.user.profile.photo.url) %>	
+				</div>
+				<div class="right-column">
+					<div class="ticket-info flexbox">
+						<p>
+							<% if to.ticket.time.strftime("%H") == "00" %>
+								時間未指定
+							<% else %>
+								<%= to.ticket.time.strftime("%H:%M") + " ~ " + (to.ticket.time.strftime("%H").to_i + 1).to_s + ":00" %>
+							<% end %>
+						</p>
+						<p><%= to.ticket.place %></p>	
+					</div>
+					<div class="user-content flexbox">
+						<p class="name"><%= to.offer.user_try.user.profile.name %>(<%= get_age(to.offer.user_try.user.profile.birthday) %>)</p>
+						<p><%= to.offer.user_try.user.profile.birth_place %>出身</p>
+					</div>	
+				</div>
+			</div>
+			<div class="talk_theme">
+				<p><%= to.offer.user_try.user.profile.default_talk_theme %></p>
+			</div>
+			<% end %>
+		<% end %>
 	</div>
-	<% end %>
-<% end %>
+</div>

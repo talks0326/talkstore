@@ -1,10 +1,40 @@
-<div>
-	<td><%= image_tag(@ticket.user.profile.photo.photo_type == 1 ? @ticket.user.profile.photo.data.url(:medium,false) : @ticket.user.profile.photo.url) %></td><br/>
-	<td><%= @ticket.user.profile.name %></td><br/>
-	<td><%= @ticket.user.profile.birthday %></td><br/>
-	<td><%= @ticket.user.profile.birth_place %></td><br/>
-	<td><%= @ticket.place %></td><br/>
-	<td><%= @ticket.user.profile.self_introduction %></td><br/>
-	<td><%= @ticket.talk_theme %></td><br/>
-	<%= link_to "申込",apply_offer_path(@ticket) %>
+<div class="wrapper main">
+  	<header>
+  		<div class="right-content">
+  			<div class="user"><%= link_to profile_edit_path do %><%= image_tag("user-icon.png") %><% end %></div>
+  			<% if false %><div class="notice"></div><% end %>
+  		</div>
+  	</header>
+  	<div class="pageBody ticket show">
+		<div class="ticket-show">
+			<% if current_user.check_ticket_offers?(@ticket) %>
+			<div class="check">
+				<%= image_tag("check.png") %>
+			</div>
+			<% end %>
+			<div class="user-section flexbox">
+				<div class="image">
+					<%= image_tag(@ticket.user_try.user.profile.photo.photo_type == 1 ? @ticket.user_try.user.profile.photo.data.url(:medium,false) : @ticket.user_try.user.profile.photo.url) %>	
+				</div>
+				<div class="right-column">
+					<div class="ticket-info flexbox">
+						<p><%= @ticket.time.strftime("%H:%M") + " ~ " + (@ticket.time.strftime("%H").to_i + 1).to_s + ":00" %></p>
+						<p><%= @ticket.place %></p>	
+					</div>
+					<div class="user-content flexbox">
+						<p class="name"><%= @ticket.user_try.user.profile.name %>(<%= get_age(@ticket.user_try.user.profile.birthday) %>)</p>
+						<p><%= @ticket.user_try.user.profile.birth_place %>出身</p>
+					</div>	
+				</div>
+			</div>
+			<div class="talk_theme">
+				<p><%= @ticket.talk_theme %></p>
+			</div>
+			<div class="introduction talk_theme">
+				<p><%= @ticket.user_try.user.profile.self_introduction %></p>
+			</div>
+
+			<%= link_to "このユーザーに申し込む",apply_offer_path(@ticket),class: "submit" %>
+		</div>
+	</div>
 </div>

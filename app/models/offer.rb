@@ -11,6 +11,6 @@
 #
 
 class Offer < ApplicationRecord
-	belongs_to :user
+	belongs_to :user_try
 	has_many :ticket_offers
 end

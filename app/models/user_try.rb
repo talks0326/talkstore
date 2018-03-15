@@ -13,6 +13,10 @@ class UserTry < ApplicationRecord
 	
 	belongs_to :user,optional: true
 	has_many :user_transitions, autosave: false
+	has_many :tickets
+	has_many :offers
+
+	accepts_nested_attributes_for :tickets,:offers,allow_destroy: true
 
 	def state_machine
 	  @state_machine ||= UserStateMachine.new(self, transition_class: UserTransition)

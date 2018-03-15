@@ -1,9 +1,35 @@
-<div>
-	<td><%= image_tag(@offer.user.profile.photo.photo_type == 1 ? @offer.user.profile.photo.data.url(:medium,false) : @offer.user.profile.photo.url) %></td><br/>
-	<td><%= @offer.user.profile.name %></td><br/>
-	<td><%= @offer.user.profile.birthday %></td><br/>
-	<td><%= @offer.user.profile.birth_place %></td><br/>
-	<td><%= @offer.user.profile.self_introduction %></td><br/>
-	<td><%= @offer.user.profile.default_talk_theme %></td><br/>
-	<%= link_to "選択する",recruit_choose_path(@offer) %>
+<div class="wrapper main">
+  	<header>
+  		<div class="right-content">
+  			<div class="user"><%= link_to profile_edit_path do %><%= image_tag("user-icon.png") %><% end %></div>
+  			<% if false %><div class="notice"></div><% end %>
+  		</div>
+  	</header>
+  	<div class="pageBody ticket show">
+		<div class="ticket-show">
+			<div class="user-section flexbox">
+				<div class="image">
+					<%= image_tag(@offer.user_try.user.profile.photo.photo_type == 1 ? @offer.user_try.user.profile.photo.data.url(:medium,false) : @offer.user_try.user.profile.photo.url) %>	
+				</div>
+				<div class="right-column">
+					<div class="ticket-info flexbox">
+						<p><%= @offer.ticket_offers.last.ticket.time.strftime("%H:%M") + " ~ " + (@offer.ticket_offers.last.ticket.time.strftime("%H").to_i + 1).to_s + ":00" %></p>
+						<p><%= @offer.ticket_offers.last.ticket.place %></p>	
+					</div>
+					<div class="user-content flexbox">
+						<p class="name"><%= @offer.user_try.user.profile.name %>(<%= get_age(@offer.user_try.user.profile.birthday) %>)</p>
+						<p><%= @offer.user_try.user.profile.birth_place %>出身</p>
+					</div>	
+				</div>
+			</div>
+			<div class="talk_theme">
+				<p><%= @offer.user_try.user.profile.default_talk_theme %></p>
+			</div>
+			<div class="introduction talk_theme">
+				<p><%= @offer.user_try.user.profile.self_introduction %></p>
+			</div>
+
+			<%= link_to "このユーザーを選択する",recruit_choose_path(@offer),class: "submit" %>
+		</div>
+	</div>
 </div>

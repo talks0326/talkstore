@@ -1,17 +1,7 @@
-<div class="wrapper">
+<div class="wrapper main profile">
+  <header></header>
   <div class="pageBody profile">
     <%= form_with(model: profile,url: url, local: true) do |form| %>
-      <% if profile.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
-
-          <ul>
-          <% profile.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
       <div class="flexbox">
         <div class="left-content">
           <%= form.fields_for :photo do |p| %>
@@ -25,15 +15,13 @@
               <span><%= p.file_field :data,class: "upload" %></span>
               </label>
             </div>
-            
           <% end %>  
         </div>
-
         <div class="right-content">
           <div class="form-group">
             <%= form.text_field :name,placeholder: "表示名" %>
           </div>
-          <div class="form-group">
+          <div class="form-group radio">
             <label>
               <%= form.radio_button :gender,false %><span>男性</span>
             </label>
@@ -49,7 +37,6 @@
           </div>
         </div>
       </div>
-      
       <div class="center col-1">
         <div class="form-group">
           <%= form.text_field :default_talk_theme,placeholder: "トークテーマ" %>

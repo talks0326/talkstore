@@ -4,7 +4,7 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.effectiveness
   end
 
   # GET /tickets/1
@@ -14,7 +14,13 @@ class TicketsController < ApplicationController
 
   # GET /tickets/new
   def new
-    @ticket = current_user.tickets.build
+    #@ticket = current_user.tickets.build
+    @try = current_user.user_tries.last
+    @try.tickets.build(time: "00:00")
+    @try.tickets.build(time: "18:00")
+    @try.tickets.build(time: "19:00")
+    @try.tickets.build(time: "20:00")
+    @try.tickets.build(time: "21:00")
   end
 
   # GET /tickets/1/edit
@@ -24,7 +30,7 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    @ticket = current_user.tickets.build(ticket_params)
+    @ticket = current_user.user_tries.last.tickets.build(ticket_params)
 
     respond_to do |format|
       if @ticket.save
@@ -60,6 +66,15 @@ class TicketsController < ApplicationController
       format.html { redirect_to tickets_url, notice: 'Ticket was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def user_tickets
+    ticket_params = params[:user_tickets]
+    ticket_params.each do |tp|
+      current_user.user_tries.last.tickets.create(user_try_id: current_user.user_tries.last.id,time: tp+":00",place:"新宿",point: "2000",talk_theme: current_user.profile.default_talk_theme)
+    end
+    current_user.user_tries.last.state_machine.transition_to(:recruit)
+    redirect_to root_path
   end
 
   private
