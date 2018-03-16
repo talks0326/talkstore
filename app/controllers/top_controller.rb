@@ -3,7 +3,7 @@ class TopController < ApplicationController
   def index
   	case current_user.user_tries.last.state_machine.current_state
   	when "start"
-  		redirect_to profiles_edit_path
+  		redirect_to profile_edit_path
   	when "pending"
   		if current_user.profile.gender
   			redirect_to new_ticket_path
