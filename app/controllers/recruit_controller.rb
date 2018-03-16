@@ -26,6 +26,6 @@ class RecruitController < ApplicationController
   
   def set_ticket_offer
     @offer = Offer.find(params[:id])
-    @ticket = @offer.ticket_offer.ticket
+    @ticket = @offer.ticket_offers.last.ticket
   end
 end

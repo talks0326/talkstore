@@ -160,3 +160,19 @@
 		}
 	}
 }
+
+input[type=submit]{
+	margin-top: 20px;
+    padding: 5px 20px;
+    border-radius: 6px;
+    background-color: #ffb901;
+    color: #fff;
+    font-weight: bold;
+    width: 280px;
+    box-shadow: 2px 2px gray;
+
+    &:hover{
+	    box-shadow: 2px 2px gray inset;
+    	background-color: #e0a200;
+    }
+}

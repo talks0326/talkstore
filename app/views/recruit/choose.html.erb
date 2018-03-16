@@ -13,7 +13,13 @@
 				</div>
 				<div class="right-column">
 					<div class="ticket-info flexbox">
-						<p><%= @offer.ticket_offers.last.ticket.time.strftime("%H:%M") + " ~ " + (@offer.ticket_offers.last.ticket.time.strftime("%H").to_i + 1).to_s + ":00" %></p>
+						<p>
+							<% if @offer.ticket_offers.last.ticket.time.strftime("%H") == "00" %>
+								時間未指定
+							<% else %>
+								<%= @offer.ticket_offers.last.ticket.time.strftime("%H:%M") + " ~ " + (@offer.ticket_offers.last.ticket.time.strftime("%H").to_i + 1).to_s + ":00" %>
+							<% end %>	
+						</p>
 						<p><%= @offer.ticket_offers.last.ticket.place %></p>	
 					</div>
 					<div class="user-content flexbox">
@@ -42,7 +48,13 @@
 				</div>
 				<div class="right-column">
 					<div class="ticket-info flexbox">
-						<p><%= @ticket.time.strftime("%H:%M") + " ~ " + (@ticket.time.strftime("%H").to_i + 1).to_s + ":00" %></p>
+						<p>
+							<% if @ticket.time.strftime("%H") == "00" %>
+								時間未指定
+							<% else %>
+								<%= @ticket.time.strftime("%H:%M") + " ~ " + (@ticket.time.strftime("%H").to_i + 1).to_s + ":00" %>
+							<% end %>	
+						</p>
 						<p><%= @ticket.place %></p>	
 					</div>
 					<div class="user-content flexbox">
