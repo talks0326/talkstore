@@ -20,7 +20,7 @@ class TopController < ApplicationController
       redirect_to root_path
       #redirect_to message_room_path(current_user.tickets.last)
   	when "establish_guest"
-      redirect_to 
+      redirect_to apply_mattching_path
       #redirect_to message_room_path(current_user.offers.last.ticket_offers.last.ticket)
   	when "matching"
       if current_user.profile.gender

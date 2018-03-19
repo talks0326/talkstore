@@ -6,6 +6,35 @@
   		</div>
   	</header>
   	<div class="pageBody ticket show">
+  		<div class="ticket-show">
+			<div class="user-section flexbox">
+				<div class="image">
+					<%= image_tag(@ticket.user_try.user.profile.photo.photo_type == 1 ? @ticket.user_try.user.profile.photo.data.url(:medium,false) : @ticket.user_try.user.profile.photo.url) %>	
+				</div>
+				<div class="right-column">
+					<div class="ticket-info flexbox">
+						<p><%= @ticket.time.strftime("%H:%M") + " ~ " + (@ticket.time.strftime("%H").to_i + 1).to_s + ":00" %></p>
+						<p><%= @ticket.place %></p>	
+					</div>
+					<div class="user-content flexbox">
+						<p class="name"><%= @ticket.user_try.user.profile.name %>(<%= get_age(@ticket.user_try.user.profile.birthday) %>)</p>
+						<p><%= @ticket.user_try.user.profile.birth_place %>出身</p>
+					</div>	
+				</div>
+			</div>
+			<div class="talk_theme">
+				<p><%= @ticket.talk_theme %></p>
+			</div>
+			<div class="introduction talk_theme">
+				<p><%= @ticket.user_try.user.profile.self_introduction %></p>
+			</div>
+		</div>
+
+		<div class="mattching ticket-show">
+			<p>マッチングしました！！</p>
+			<p class="alert">現在メッセージ機能を開発中ですので、運営よりお二人にご連絡差し上げます。再度ご利用していただけることを心よりお待ちしております。</p>
+		</div>
+
 		<div class="ticket-show">
 			<div class="user-section flexbox">
 				<div class="image">
@@ -27,35 +56,6 @@
 			</div>
 			<div class="introduction talk_theme">
 				<p><%= @offer.user_try.user.profile.self_introduction %></p>
-			</div>
-		</div>
-
-		<div class="mattching ticket-show">
-			<p>マッチングしました！！</p>
-			<p class="alert">現在メッセージ機能を開発中ですので、運営よりお二人にご連絡差し上げます。再度ご利用していただけることを心よりお待ちしております。</p>
-		</div>
-
-		<div class="ticket-show">
-			<div class="user-section flexbox">
-				<div class="image">
-					<%= image_tag(@ticket.user_try.user.profile.photo.photo_type == 1 ? @ticket.user_try.user.profile.photo.data.url(:medium,false) : @ticket.user_try.user.profile.photo.url) %>	
-				</div>
-				<div class="right-column">
-					<div class="ticket-info flexbox">
-						<p><%= @ticket.time.strftime("%H:%M") + " ~ " + (@ticket.time.strftime("%H").to_i + 1).to_s + ":00" %></p>
-						<p><%= @ticket.place %></p>	
-					</div>
-					<div class="user-content flexbox">
-						<p class="name"><%= @ticket.user_try.user.profile.name %>(<%= get_age(@ticket.user_try.user.profile.birthday) %>)</p>
-						<p><%= @ticket.user_try.user.profile.birth_place %>出身</p>
-					</div>	
-				</div>
-			</div>
-			<div class="talk_theme">
-				<p><%= @ticket.talk_theme %></p>
-			</div>
-			<div class="introduction talk_theme">
-				<p><%= @ticket.user_try.user.profile.self_introduction %></p>
 			</div>
 		</div>
 	</div>

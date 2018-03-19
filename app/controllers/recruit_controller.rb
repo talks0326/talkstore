@@ -14,6 +14,10 @@ class RecruitController < ApplicationController
     @ticket.end = true
     if @ticket.save
       @ticket.user_try.tickets.update_all(end: true)
+      offer = @ticket.offer
+      offer.end = true
+      offer.save
+      offer.user_try.offers.update_all(end: true)
       @ticket.user_try.state_machine.transition_to(:establish_host)
       @offer.user_try.state_machine.transition_to(:establish_guest)
     end

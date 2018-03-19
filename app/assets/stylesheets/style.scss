@@ -196,6 +196,20 @@ p.lead {
     .page-search & {
         background-color: #F6F8FA;
     }
+
+    @media screen and (max-width: $screen-sm) {
+        width: 100%;
+        min-width: initial;
+        min-width: auto;
+    }
+
+    @media screen and (max-width: $screen-xs) {
+        width: 100%;
+    }
+
+    @media screen and (max-width: $screen-xxs) {
+        width: 100%;
+    }
 }
 
 .pageColumn {

@@ -1,3 +1,4 @@
+@import 'variable';
 // Place all the styles related to the Top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -12,6 +13,11 @@
 	    background-size: contain;
 	    border-bottom: 1px solid #fff;
 	    margin-bottom: 20px;
+
+	    @media screen and (max-width: $screen-sm) {
+	        margin-bottom: 0;
+	        height:60px;
+	    }
 	}
 
 	.pageBody{
@@ -34,6 +40,10 @@
 		    font-weight: bold;
 		    box-shadow: 2px 2px gray;
 		    padding: 10px 0;
+
+		    @media screen and (max-width: $screen-sm) {
+		        width:80%;
+		    }
 
 		    &.checked{
 		    	box-shadow: 2px 2px gray inset;

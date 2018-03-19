@@ -1,3 +1,4 @@
+@import 'variable';
 .wrapper.main.profile{
 	.pageBody.profile{
 		text-align: center;
@@ -10,14 +11,39 @@
 			margin: 0 auto;
 			background-color: #fff;
 
+			@media screen and (max-width: $screen-sm) {
+		        width: 100vw;
+		        padding: 20px;
+		        margin-top: 0;
+		        background-color: #ffb901;
+		    }
+
+		    form{
+		    	@media screen and (max-width: $screen-sm) {
+			        background-color: #fff;
+			        border-radius: 8px;
+			        padding: 10px;
+			    }
+		    }
+
 			.flexbox{
 				display: flex;
 				justify-content: center;
 				align-items: flex-end;
 				margin-bottom: 20px;
 
+				@media screen and (max-width: $screen-sm) {
+			        display: block;
+			        margin-bottom:0px;
+			    }
+
 				.left-content{
 					margin-right:20px;
+
+					@media screen and (max-width: $screen-sm) {
+				        margin-right: 0;
+				        margin-bottom: 10px;
+				    }
 
 					.image{
 					    margin: 0 auto;
@@ -27,6 +53,11 @@
 							width:150px;
 							height: 150px;
 							border-radius: 50%;
+
+							@media screen and (max-width: $screen-sm) {
+						        width: 45vw;
+						        height: 45vw;
+						    }
 						}
 
 						input.upload{
@@ -38,6 +69,10 @@
 				.right-content{
 					.form-group{
 						margin-bottom:15px;
+						@media screen and (max-width: $screen-sm) {
+					        width:80vw;
+					        margin: 0 auto 10px auto;
+					    }
 
 						&.radio{
 							display: flex;
@@ -67,6 +102,10 @@
 							border-radius: 6px;
 							font-weight: bold;
 							text-align: center;
+
+							@media screen and (max-width: $screen-sm) {
+						        width:100%;
+						    }
 						}
 					}
 				}
@@ -76,8 +115,19 @@
 				width: 80%;
 				margin: 0 auto;
 
+				@media screen and (max-width: $screen-sm) {
+			        background-color: #fff;
+			        color: #000;
+			        width: 100%;
+			    }
+
 				.form-group{
 					margin-bottom:15px;
+
+					@media screen and (max-width: $screen-sm) {
+				        width:80vw;
+				        margin: 0 auto 10px auto;
+				    }
 
 					&.radio{
 						display: flex;
@@ -116,6 +166,11 @@
 				}
 
 				.actions{
+
+					@media screen and (max-width: $screen-sm) {
+				        margin-bottom:10px;
+				    }
+
 					input[type=submit]{
 					    padding: 10px 20px;
 					    border-radius: 6px;
@@ -125,9 +180,20 @@
 					    width: 80%;
 					    box-shadow: 2px 2px gray;
 
+					    @media screen and (max-width: $screen-sm) {
+					        border: 0px;
+					        box-shadow:none;
+					        margin-top:0;
+					    }
+
 					    &:hover{
 					    	box-shadow: 2px 2px gray inset;
 		    				background-color: #e0a200;
+
+		    				@media screen and (max-width: $screen-sm) {
+						        box-shadow:none;
+						        background-color: #ffb901;
+						    }
 					    }
 					}
 				}
@@ -143,7 +209,15 @@
 			padding-top: 12vh;
 			img{
 				width: 30vw;
+
+				@media screen and (max-width: $screen-sm) {
+			        width: 100vw;
+			    }
 			}
+
+			@media screen and (max-width: $screen-sm) {
+		        padding-top: 20vh;
+		    }
 		}
 
 		&.login{
@@ -157,6 +231,11 @@
 		    	color: #fff;
 		    	text-decoration: none;
 		    	font-weight: bold;
+		    }
+
+		    @media screen and (max-width: $screen-sm) {
+		        width: 80vw;
+
 		    }
 		}
 	}

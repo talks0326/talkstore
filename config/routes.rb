@@ -71,8 +71,10 @@ Rails.application.routes.draw do
   get 'recruit/:id/choose' => "recruit#choose",as: "recruit_choose"
   
   get 'apply/index'
+  get 'apply/mattching' => "apply#mattching",as: "apply_mattching"
   get 'apply/:id' => "apply#show",as: "apply_show"
   get 'apply/:id/offer' => "apply#offer",as: "apply_offer"
+
 
   root to: "top#index"
   get 'top/index'

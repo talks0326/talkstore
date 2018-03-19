@@ -22,12 +22,22 @@ class ApplyController < ApplicationController
   	redirect_to root_path
   end
 
-  def matthing
-    
+  def mattching
+    @ticket = mattching_ticket
+    @offer = @ticket.offer
+    current_user.user_tries.last.state_machine.transition_to(:end)
   end
 
   private
   def set_ticket
   	@ticket = Ticket.find(params[:id])
+  end
+
+  def mattching_ticket
+    current_user.user_tries.last.offers.each do |offer|
+      if offer.ticket.offer_id == offer.id
+        return offer.ticket
+      end
+    end
   end
 end
