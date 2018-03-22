@@ -32,7 +32,7 @@
 				<p><%= @offer.user_try.user.profile.default_talk_theme %></p>
 			</div>
 			<div class="introduction talk_theme">
-				<p><%= @offer.user_try.user.profile.self_introduction %></p>
+				<p><%= simple_format_v1(@offer.user_try.user.profile.self_introduction) %></p>
 			</div>
 
 			<%= link_to "このユーザーを選択する",recruit_choose_path(@offer),class: "submit" %>

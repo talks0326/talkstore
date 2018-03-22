@@ -36,7 +36,7 @@
 				<p><%= @ticket.talk_theme %></p>
 			</div>
 			<div class="introduction talk_theme">
-				<p><%= simple_format(@ticket.user_try.user.profile.self_introduction) %></p>
+				<p><%= simple_format_v1(@ticket.user_try.user.profile.self_introduction) %></p>
 			</div>
 
 			<%= link_to "このユーザーに申し込む",apply_offer_path(@ticket),class: "submit" %>

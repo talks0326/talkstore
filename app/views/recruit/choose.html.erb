@@ -32,7 +32,7 @@
 				<p><%= @offer.user_try.user.profile.default_talk_theme %></p>
 			</div>
 			<div class="introduction talk_theme">
-				<p><%= @offer.user_try.user.profile.self_introduction %></p>
+				<p><%= simple_format_v1(@offer.user_try.user.profile.self_introduction) %></p>
 			</div>
 		</div>
 
@@ -67,7 +67,7 @@
 				<p><%= @ticket.talk_theme %></p>
 			</div>
 			<div class="introduction talk_theme">
-				<p><%= @ticket.user_try.user.profile.self_introduction %></p>
+				<p><%= simple_format_v1(@ticket.user_try.user.profile.self_introduction) %></p>
 			</div>
 		</div>
 	</div>
