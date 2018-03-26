@@ -14,14 +14,14 @@ module ApplicationHelper
 	    req_url.length > 3 ? ogtype = 'article' : ogtype = 'website'
 	    {
 	      charset: 'utf-8',
-	      site: "トークストア",
+	      site: "スーン",
 	      reverse: true,
 	      description: "",
 	      keywords: "",
 	      canonical: request.original_url,
 	      viewport: "width=device-width,initial-scale=1",
 	      og: {
-	        title: "トークストア",
+	        title: "スーン",
 	        type: "website",
 	        url: request.original_url,
 	        image: {
@@ -29,8 +29,8 @@ module ApplicationHelper
 	          width: '1024',
 	          height: '1024'
 	        },
-	        site_name: "トークストア",
-	        description: "今日会いたいを叶えるマッチングアプリ！|トークストア",
+	        site_name: "スーン",
+	        description: "今日会いたいを叶えるマッチングアプリ！|スーン",
 	        locale: 'ja_JP'
 	      },
 				fb: {
