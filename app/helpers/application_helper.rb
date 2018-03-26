@@ -34,7 +34,7 @@ module ApplicationHelper
 	        locale: 'ja_JP'
 	      },
 				fb: {
-					app_id: '154354255254844'
+					app_id: '537592969957411'
 				},
 				twitter: {
 	        site: '@designated_dev',
