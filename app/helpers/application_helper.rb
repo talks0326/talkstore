@@ -21,8 +21,8 @@ module ApplicationHelper
 	      canonical: request.original_url,
 	      viewport: "width=device-width,initial-scale=1",
 	      og: {
-	        title: :title,
-	        type: ogtype,
+	        title: "トークストア",
+	        type: "website",
 	        url: request.original_url,
 	        image: {
 	          _: "https://talkstore.tokyo" + asset_path("soon_logo.png"),
@@ -30,7 +30,7 @@ module ApplicationHelper
 	          height: '1024'
 	        },
 	        site_name: "トークストア",
-	        description: :description,
+	        description: "今日会いたいを叶えるマッチングアプリ！|トークストア",
 	        locale: 'ja_JP'
 	      },
 				fb: {
