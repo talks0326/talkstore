@@ -84,6 +84,7 @@ class TicketsController < ApplicationController
     @ticket.time = DateTime.now
     @ticket.talk_theme = current_user.profile.default_talk_theme
     @ticket.save
+    current_user.user_tries.last.state_machine.transition_to(:recruit)
 
     redirect_to root_path
   end

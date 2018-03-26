@@ -118,6 +118,7 @@
     	@media screen and (max-width: $screen-sm) {
     		width: 30vw;
 	    	margin: -15px 10px 0 15px;
+	    	height: auto;
     	}	
     }
 
@@ -162,9 +163,10 @@
 			@media screen and (max-width: $screen-sm) {
 			    padding: 10px 10px;
 			    background: #fff;
-			    margin: 10px;
+			    margin: 10px auto;
 			    border-radius: 10px;
 			    color: #ffb901;
+			    width: 90vw;
 			}
 		}
 	}
