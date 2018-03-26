@@ -12,7 +12,7 @@ class ApplyController < ApplicationController
   def offer
   	ticket = Ticket.find(params[:id])
     offer = Offer.where(user_try_id: current_user.user_tries.last.id,ticket_id: ticket.id)
-    if offer.bank?
+    if offer.blank?
       offer = current_user.user_tries.last.offers.build
       offer.ticket_id = @ticket.id
       if offer.save
