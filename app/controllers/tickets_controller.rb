@@ -78,7 +78,14 @@ class TicketsController < ApplicationController
   end
 
   def today_ticket
-    
+    @ticket = current_user.user_tries.last.tickets.build
+    @ticket.place = "新宿"
+    @ticket.point = "3000"
+    @ticket.time = DateTime.now
+    @ticket.talk_theme = current_user.profile.default_talk_theme
+    @ticket.save
+
+    redirect_to root_path
   end
 
   private
