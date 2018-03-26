@@ -16,9 +16,10 @@ class TopController < ApplicationController
       redirect_to apply_index_path
     #ファーストリリース対応
     when "establish_host"
-      current_user.user_tries.last.state_machine.transition_to(:end)
-      redirect_to root_path
+      #current_user.user_tries.last.state_machine.transition_to(:end)
+      #redirect_to root_path
       #redirect_to message_room_path(current_user.tickets.last)
+      redirect_to recruit_choose_path(current_user.user_tries.last.tickets.first.offer)
     when "establish_guest"
       redirect_to apply_mattching_path
       #redirect_to message_room_path(current_user.offers.last.ticket_offers.last.ticket)
