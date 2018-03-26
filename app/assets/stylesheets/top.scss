@@ -7,17 +7,17 @@
 
 	header{
 		height: 60px;
-		/*background-image: asset-url("logo_new.png");
-		background-repeat: no-repeat;
-	    background-position: center;
-	    background-size: contain;*/
 	    border-bottom: 1px solid #fff;
 	    margin-bottom: 20px;
 	    position: relative;
+	    display: flex;
+	    justify-content: center;
 
 	    @media screen and (max-width: $screen-sm) {
 	        margin-bottom: 0;
 	        height:60px;
+	        display: block;
+	    	justify-content: center;
 	    }
 
 	    .toTop{
@@ -25,13 +25,11 @@
 		    height: 60px;
 		    width: 80px;
 		    display: block;
-		    left: 0;
-		    right: 0;
-		    margin: auto;
-		    position: absolute;
 
 		    @media screen and (max-width: $screen-sm) {
 		    	right: initial;
+		    	left: 0;
+			    position: absolute;
 		    }
 
 		    img{
@@ -40,19 +38,22 @@
 		}
 
 		.soon_message{
+		    margin: 0 10px;
+			p{
+				background: #fff;
+				padding: 10px 20px;
+				border-radius: 10px;
+				line-height: 1em;
+				color:#ffb901;
+			}
 
 			@media screen and (max-width: $screen-sm) {
 				position: absolute;
 				left:85px;
 				width: 170px;
-				color:#ffb901;
 				line-height: 1em;
+				margin: 0;
 
-				p{
-					background: #fff;
-					padding:10px;
-					border-radius: 10px
-				}
 			}
 		}
 	}
