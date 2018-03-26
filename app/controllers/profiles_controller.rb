@@ -80,7 +80,7 @@ class ProfilesController < ApplicationController
 
     def profile_attributes
       [
-        :user_id,:name,:gender,:birth_place,:birthday,:default_talk_theme,:self_introduction,
+        :user_id,:name,:gender,:birth_place,:birthday,:default_talk_theme,:self_introduction,:work,:place,
         photo_attributes: [:id,:photo_type,:url,:data]
       ]
     end

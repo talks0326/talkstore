@@ -1,5 +1,8 @@
 <div class="wrapper main">
   	<header>
+  		<%= link_to root_path,class: "toTop" do %>
+  			<%= image_tag "logo_new.png" %>
+  		<% end %>
   		<div class="right-content">
   			<div class="user"><%= link_to profile_edit_path do %><%= image_tag("user-icon.png") %><% end %></div>
   			<% if false %><div class="notice"></div><% end %>
@@ -17,6 +20,7 @@
 					<%= image_tag(@ticket.user_try.user.profile.photo.photo_type == 1 ? @ticket.user_try.user.profile.photo.data.url(:medium,false) : @ticket.user_try.user.profile.photo.url) %>	
 				</div>
 				<div class="right-column">
+					<% if false %>
 					<div class="ticket-info flexbox">
 						<p>
 							<% if @ticket.time.strftime("%H") == "00" %>
@@ -26,9 +30,11 @@
 							<% end %>
 						<p><%= @ticket.place %></p>	
 					</div>
-					<div class="user-content flexbox">
+					<% end %>
+					<div class="user-content">
 						<p class="name"><%= @ticket.user_try.user.profile.name %>(<%= get_age(@ticket.user_try.user.profile.birthday) %>)</p>
-						<p><%= @ticket.user_try.user.profile.birth_place %>出身</p>
+						<p><%= @ticket.user_try.user.profile.place %></p>
+						<p><%= @ticket.user_try.user.profile.work %></p>
 					</div>	
 				</div>
 			</div>
@@ -41,5 +47,16 @@
 
 			<%= link_to "このユーザーに申し込む",apply_offer_path(@ticket),class: "submit" %>
 		</div>
+	</div>
+	<div class="soon flexbox long noComment">
+	    <%= image_tag("logo_new.png") %>
+
+	    <div id="soon_sujest" class="sujest">
+	      <p>
+	        この人の印象はどうかな？<br/>
+	        良さそうだったら"このユーザーに申し込む"をクリックしてオファーを出そう！<br/>
+	        相手が承認するとマッチングになるよ！
+	      </p>
+	    </div>
 	</div>
 </div>

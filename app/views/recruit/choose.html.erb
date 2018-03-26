@@ -1,5 +1,8 @@
 <div class="wrapper main">
   	<header>
+  		<%= link_to root_path,class: "toTop" do %>
+  			<%= image_tag "logo_new.png" %>
+  		<% end %>
   		<div class="right-content">
   			<div class="user"><%= link_to profile_edit_path do %><%= image_tag("user-icon.png") %><% end %></div>
   			<% if false %><div class="notice"></div><% end %>
@@ -12,6 +15,7 @@
 					<%= image_tag(@offer.user_try.user.profile.photo.photo_type == 1 ? @offer.user_try.user.profile.photo.data.url(:medium,false) : @offer.user_try.user.profile.photo.url) %>	
 				</div>
 				<div class="right-column">
+					<% if false %>
 					<div class="ticket-info flexbox">
 						<p>
 							<% if @offer.ticket_offers.last.ticket.time.strftime("%H") == "00" %>
@@ -22,9 +26,11 @@
 						</p>
 						<p><%= @offer.ticket_offers.last.ticket.place %></p>	
 					</div>
-					<div class="user-content flexbox">
+					<% end %>
+					<div class="user-content">
 						<p class="name"><%= @offer.user_try.user.profile.name %>(<%= get_age(@offer.user_try.user.profile.birthday) %>)</p>
-						<p><%= @offer.user_try.user.profile.birth_place %>出身</p>
+						<p><%= @offer.user_try.user.profile.place %></p>
+						<p><%= @offer.user_try.user.profile.work %></p>
 					</div>	
 				</div>
 			</div>
@@ -47,6 +53,7 @@
 					<%= image_tag(@ticket.user_try.user.profile.photo.photo_type == 1 ? @ticket.user_try.user.profile.photo.data.url(:medium,false) : @ticket.user_try.user.profile.photo.url) %>	
 				</div>
 				<div class="right-column">
+					<% if false %>
 					<div class="ticket-info flexbox">
 						<p>
 							<% if @ticket.time.strftime("%H") == "00" %>
@@ -57,9 +64,11 @@
 						</p>
 						<p><%= @ticket.place %></p>	
 					</div>
+					<% end %>
 					<div class="user-content flexbox">
 						<p class="name"><%= @ticket.user_try.user.profile.name %>(<%= get_age(@ticket.user_try.user.profile.birthday) %>)</p>
-						<p><%= @ticket.user_try.user.profile.birth_place %>出身</p>
+						<p><%= @ticket.user_try.user.profile.place %></p>
+						<p><%= @ticket.user_try.user.profile.work %></p>
 					</div>	
 				</div>
 			</div>

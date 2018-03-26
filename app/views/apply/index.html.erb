@@ -1,7 +1,12 @@
 <div class="wrapper main">
   	<header>
+  		<%= link_to root_path,class: "toTop" do %>
+  			<%= image_tag "logo_new.png" %>
+  		<% end %>
   		<div class="right-content">
-  			<div class="user"><%= link_to profile_edit_path do %><%= image_tag("user-icon.png") %><% end %></div>
+  			<div class="user">
+  				<%= link_to profile_edit_path do %><%= image_tag("user-icon.png") %><% end %>
+  			</div>
   			<% if false %><div class="notice"></div><% end %>
   		</div>
   	</header>
@@ -18,7 +23,8 @@
 					<%= image_tag(t.user_try.user.profile.photo.photo_type == 1 ? t.user_try.user.profile.photo.data.url(:medium,false) : t.user_try.user.profile.photo.url) %>	
 				</div>
 				<div class="right-column">
-					<div class="ticket-info flexbox">
+					<% if false %>
+					<div class="ticket-info">
 						<p>
 							<% if t.time.strftime("%H") == "00" %>
 								時間未指定
@@ -28,9 +34,11 @@
 						</p>
 						<p><%= t.place %></p>	
 					</div>
-					<div class="user-content flexbox">
+					<% end %>
+					<div class="user-content">
 						<p class="name"><%= t.user_try.user.profile.name %>(<%= get_age(t.user_try.user.profile.birthday) %>)</p>
-						<p><%= t.user_try.user.profile.birth_place %>出身</p>
+						<p><%= t.user_try.user.profile.place %></p>
+						<p><%= t.user_try.user.profile.work %></p>
 					</div>	
 				</div>
 			</div>
@@ -39,5 +47,15 @@
 			</div>
 			<% end %>
 		<% end %>
+	</div>
+	<div class="soon flexbox long noComment">
+	    <%= image_tag("logo_new.png") %>
+
+	    <div id="soon_sujest" class="sujest">
+	      <p>
+	        今日の夜予定が空いている女性が表示されているよ！<br/>
+	        気になる人がいたらクリックして詳細を見てみよう！
+	      </p>
+	    </div>
 	</div>
 </div>

@@ -75,6 +75,8 @@ create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSE
   t.date "birthday"
   t.string "default_talk_theme"
   t.text "self_introduction"
+  t.string "work"
+  t.string "place"
   t.datetime "created_at", null: false
   t.datetime "updated_at", null: false
 end

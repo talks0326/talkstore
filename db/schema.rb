@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "offers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "user_id", null: false
+    t.integer "user_try_id", null: false
     t.integer "ticket_id", null: false
     t.boolean "end", default: false
     t.datetime "created_at", null: false

@@ -20,6 +20,7 @@ class RecruitController < ApplicationController
       offer.user_try.offers.update_all(end: true)
       @ticket.user_try.state_machine.transition_to(:establish_host)
       @offer.user_try.state_machine.transition_to(:establish_guest)
+      UserMailer.mattching_men(@offer.user_try.user).deliver!
     end
   end
 

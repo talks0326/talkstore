@@ -30,3 +30,12 @@ $(document).on("change","input[type=checkbox].tickets",function(){
 		$(this).next("label").removeClass("checked");
 	}
 });
+
+$(document).on("click",".soon",function(){
+	if ($("#soon_sujest").css('display') == "none"){
+		$("#soon_sujest").show();
+		$("html,body").animate({scrollTop:$('#soon_sujest').offset().top});
+	}else{
+		$("#soon_sujest").hide();
+	}
+});

@@ -16,11 +16,11 @@ class TicketsController < ApplicationController
   def new
     #@ticket = current_user.tickets.build
     @try = current_user.user_tries.last
-    @try.tickets.build(time: "00:00")
-    @try.tickets.build(time: "18:00")
-    @try.tickets.build(time: "19:00")
-    @try.tickets.build(time: "20:00")
-    @try.tickets.build(time: "21:00")
+    #@try.tickets.build(time: "00:00")
+    #@try.tickets.build(time: "18:00")
+    #@try.tickets.build(time: "19:00")
+    #@try.tickets.build(time: "20:00")
+    #@try.tickets.build(time: "21:00")
   end
 
   # GET /tickets/1/edit
@@ -75,6 +75,10 @@ class TicketsController < ApplicationController
     end
     current_user.user_tries.last.state_machine.transition_to(:recruit)
     redirect_to root_path
+  end
+
+  def today_ticket
+    
   end
 
   private

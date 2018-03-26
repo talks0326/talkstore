@@ -7,17 +7,32 @@
 
 	header{
 		height: 60px;
-		background-image: asset-url("logo_new.png");
+		/*background-image: asset-url("logo_new.png");
 		background-repeat: no-repeat;
 	    background-position: center;
-	    background-size: contain;
+	    background-size: contain;*/
 	    border-bottom: 1px solid #fff;
 	    margin-bottom: 20px;
+	    position: relative;
 
 	    @media screen and (max-width: $screen-sm) {
 	        margin-bottom: 0;
 	        height:60px;
 	    }
+
+	    .toTop{
+		    height: 60px;
+		    width: 80px;
+		    display: block;
+		    left: 0;
+		    right: 0;
+		    margin: auto;
+		    position: absolute;
+
+		    img{
+		    	height: 60px;
+		    }
+		}
 	}
 
 	.pageBody{
@@ -27,6 +42,15 @@
 		.form-group{
 			input[type=checkbox].tickets{
 				display:none;
+			}
+
+			a.today-ticket{
+				width: auto;
+
+				label{
+					width: 80%;
+					padding: 30px;
+				}
 			}
 		}
 
@@ -56,4 +80,92 @@
 		    }
 		}
 	}	
+}
+
+.soon{
+
+	background: #ffb901;
+	height: 60px;
+	width: auto;
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+
+	&.long{
+		bottom:-60px;
+	}
+
+	@media screen and (max-width: $screen-sm) {
+    	height: 60px;
+	    width: auto;
+	    position: absolute;
+	    bottom:0;
+	    display: flex;    
+
+	    &.long{
+	    	bottom: -60px;
+	    }
+
+	    &.noComment{
+	    	width: 100%;
+	    }
+    }
+	
+
+    img{
+    	height: 60px;
+    	@media screen and (max-width: $screen-sm) {
+    		width: 30vw;
+	    	margin: -15px 10px 0 15px;
+    	}	
+    }
+
+    span{
+    	background-color: #fff;
+	    border-radius: 15px;
+	    padding: 5px 10px;
+	    line-height: 50px;
+	    color: #ffb901;
+
+    	@media screen and (max-width: $screen-sm) {
+	    	background-color: #fff;
+		    border-radius: 15px;
+		    padding: 5px 10px;
+		    margin: 5px 10px 5px 0;
+		    line-height: 1.3em;
+		    color: #ffb901;
+		}
+    }
+
+    .sujest{
+    	display:none;
+    	position: absolute;
+	    background: #ffb901;
+	    width: 100%;
+
+		@media screen and (max-width: $screen-sm) {
+			position: absolute;
+		    margin-top: 60px;
+		    background: #ffb901;
+		    width: 100%;
+		}
+
+		p{
+			padding: 10px 10px;
+		    background: #fff;
+		    margin: 10px auto;
+		    border-radius: 10px;
+		    color: #ffb901;
+		    width: 600px;
+
+			@media screen and (max-width: $screen-sm) {
+			    padding: 10px 10px;
+			    background: #fff;
+			    margin: 10px;
+			    border-radius: 10px;
+			    color: #ffb901;
+			}
+		}
+	}
 }

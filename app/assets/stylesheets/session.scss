@@ -216,12 +216,12 @@
 			}
 
 			@media screen and (max-width: $screen-sm) {
-		        padding-top: 20vh;
+		        padding-top: 0;
 		    }
 		}
 
 		&.login{
-			width: 17vw;
+			width: 280px;
 		    margin: 12vh auto;
 		    padding: 10px;
 		    border-radius: 25px;
