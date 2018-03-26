@@ -3,6 +3,9 @@
       <%= link_to root_path,class: "toTop" do %>
         <%= image_tag "logo_new.png" %>
       <% end %>
+      <div class="soon_message">
+        <p>今日行ける？</p>
+      </div>
   		<div class="right-content">
   			<div class="user"><%= link_to profile_edit_path do %><%= image_tag("user-icon.png") %><% end %></div>
   			<% if false %><div class="notice"></div><% end %>
@@ -13,8 +16,8 @@
 			<%= render 'form', try: @try,url: user_tickets_path,tickets: @try.tickets %>
 		</div>
 	</div>
-  <div class="soon flexbox long noComment">
-      <%= image_tag("logo_new.png") %>
+  <div class="soon flexbox long noComment at">
+      <%#= image_tag("logo_new.png") %>
 
       <div id="soon_sujest" class="sujest">
         <p>

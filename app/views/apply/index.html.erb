@@ -3,6 +3,9 @@
   		<%= link_to root_path,class: "toTop" do %>
   			<%= image_tag "logo_new.png" %>
   		<% end %>
+  		<div class="soon_message">
+  			<p style="">今日会える女性一覧</p>
+  		</div>
   		<div class="right-content">
   			<div class="user">
   				<%= link_to profile_edit_path do %><%= image_tag("user-icon.png") %><% end %>
@@ -48,6 +51,7 @@
 			<% end %>
 		<% end %>
 	</div>
+	<% if false %>
 	<div class="soon flexbox long noComment">
 	    <%= image_tag("logo_new.png") %>
 
@@ -58,4 +62,5 @@
 	      </p>
 	    </div>
 	</div>
+	<% end %>
 </div>

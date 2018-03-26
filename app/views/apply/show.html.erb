@@ -1,11 +1,11 @@
 <div class="wrapper main">
   	<header>
-  		<div class="left-content">
-  			<%= link_to "<",root_path %>
-  		</div>
   		<%= link_to root_path,class: "toTop" do %>
   			<%= image_tag "logo_new.png" %>
   		<% end %>
+  		<div class="soon_message">
+  			<p style="">今日会える女性詳細</p>
+  		</div>
   		<div class="right-content">
   			<div class="user"><%= link_to profile_edit_path do %><%= image_tag("user-icon.png") %><% end %></div>
   			<% if false %><div class="notice"></div><% end %>
@@ -51,6 +51,7 @@
 			<%= link_to "このユーザーに申し込む",apply_offer_path(@ticket),class: "submit" %>
 		</div>
 	</div>
+	<% if false %>
 	<div class="soon flexbox long noComment">
 	    <%= image_tag("logo_new.png") %>
 
@@ -62,4 +63,5 @@
 	      </p>
 	    </div>
 	</div>
+	<% end %>
 </div>

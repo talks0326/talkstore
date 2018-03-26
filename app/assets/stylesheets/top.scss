@@ -21,6 +21,7 @@
 	    }
 
 	    .toTop{
+
 		    height: 60px;
 		    width: 80px;
 		    display: block;
@@ -29,9 +30,30 @@
 		    margin: auto;
 		    position: absolute;
 
+		    @media screen and (max-width: $screen-sm) {
+		    	right: initial;
+		    }
+
 		    img{
 		    	height: 60px;
 		    }
+		}
+
+		.soon_message{
+
+			@media screen and (max-width: $screen-sm) {
+				position: absolute;
+				left:85px;
+				width: 170px;
+				color:#ffb901;
+				line-height: 1em;
+
+				p{
+					background: #fff;
+					padding:10px;
+					border-radius: 10px
+				}
+			}
 		}
 	}
 
@@ -91,6 +113,19 @@
 	bottom: 20px;
 	left: 0;
 	right: 0;
+	&.at{
+		&.long{
+			position: relative;
+			bottom: 0;
+
+			.sujest{
+				margin: 0;
+			}
+		}
+		.sujest{
+			display:block;
+		}
+	}
 
 	&.long{
 		bottom:-60px;

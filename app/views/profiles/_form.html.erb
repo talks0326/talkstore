@@ -3,6 +3,9 @@
     <%= link_to root_path,class: "toTop" do %>
         <%= image_tag "logo_new.png" %>
       <% end %>
+      <div class="soon_message">
+        <p style="">プロフィール編集</p>
+      </div>
   </header>
   <div class="pageBody profile">
     <%= form_with(model: profile,url: url, local: true) do |form| %>
@@ -37,16 +40,16 @@
             <%= form.text_field :birthday,placeholder: "生年月日 2000/1/1" %>
           </div>
           <div class="form-group">
-            <%= form.text_field :place,placeholder: "居住地" %>
+            <%= form.text_field :place,placeholder: "よく行くところ" %>
           </div>
           <div class="form-group">
-            <%= form.text_field :work,placeholder: "職業" %>
+            <%= form.text_field :work,placeholder: "お仕事" %>
           </div>
         </div>
       </div>
       <div class="center col-1">
         <div class="form-group">
-          <%= form.text_field :default_talk_theme,placeholder: "トークテーマ" %>
+          <%= form.text_field :default_talk_theme,placeholder: "話したいこと" %>
         </div>
         <div class="form-group">
           <%= form.text_area :self_introduction,rows: 5,placeholder: "自己紹介" %>
@@ -57,6 +60,7 @@
       </div>
     <% end %>
   </div>
+  <% if false %>
   <div class="soon flexbox long noComment">
     <%= image_tag("logo_new.png") %>
 
@@ -67,4 +71,5 @@
       </p>
     </div>
   </div>
+  <% end %>
 </div>
