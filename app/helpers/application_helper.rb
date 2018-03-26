@@ -7,5 +7,39 @@ module ApplicationHelper
 	def simple_format_v1(text)
 	    return if text.blank?
 	    return text.gsub(/\r\n|\r|\n/, "<br />").html_safe
+	end
+
+	def default_meta_tags
+	    req_url = request.url.split('/')
+	    req_url.length > 3 ? ogtype = 'article' : ogtype = 'website'
+	    {
+	      charset: 'utf-8',
+	      site: "トークストア",
+	      reverse: true,
+	      description: "",
+	      keywords: "",
+	      canonical: request.original_url,
+	      viewport: "width=device-width,initial-scale=1",
+	      og: {
+	        title: :title,
+	        type: ogtype,
+	        url: request.original_url,
+	        image: {
+	          _: "https://talkstore.tokyo" + asset_path("soon_logo.png"),
+	          width: '1024',
+	          height: '1024'
+	        },
+	        site_name: "トークストア",
+	        description: :description,
+	        locale: 'ja_JP'
+	      },
+				fb: {
+					app_id: '154354255254844'
+				},
+				twitter: {
+	        site: '@designated_dev',
+	        card: 'summary_large_image'
+				}
+	    }
 	  end
 end

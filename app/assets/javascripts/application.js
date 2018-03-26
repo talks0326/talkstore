@@ -30,7 +30,7 @@ $(document).on("change","input[type=checkbox].tickets",function(){
 		$(this).next("label").removeClass("checked");
 	}
 });
-
+/*
 $(document).on("click",".soon",function(){
 	if ($("#soon_sujest").css('display') == "none"){
 		$("#soon_sujest").show();
@@ -38,4 +38,4 @@ $(document).on("click",".soon",function(){
 	}else{
 		$("#soon_sujest").hide();
 	}
-});
+});*/
