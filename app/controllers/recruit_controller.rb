@@ -11,16 +11,18 @@ class RecruitController < ApplicationController
 
   def choose
     @ticket.offer_id = @offer.id
-    @ticket.end = true
-    if @ticket.save
-      @ticket.user_try.tickets.update_all(end: true)
-      offer = @ticket.offer
-      offer.end = true
-      offer.save
-      offer.user_try.offers.update_all(end: true)
-      @ticket.user_try.state_machine.transition_to(:establish_host)
-      @offer.user_try.state_machine.transition_to(:establish_guest)
-      UserMailer.mattching_men(@offer.user_try.user).deliver!
+    unless @ticket.end
+      @ticket.end = true
+      if @ticket.save
+        @ticket.user_try.tickets.update_all(end: true)
+        offer = @ticket.offer
+        offer.end = true
+        offer.save
+        offer.user_try.offers.update_all(end: true)
+        @ticket.user_try.state_machine.transition_to(:establish_host)
+        @offer.user_try.state_machine.transition_to(:establish_guest)
+        UserMailer.mattching_men(@offer.user_try.user).deliver!
+      end
     end
   end
 
