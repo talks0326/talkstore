@@ -3,6 +3,7 @@
     <div class="logo">
       <%= image_tag("logo_new.png") %>
     </div>
+    <p class="topMessage">今日会いたいを叶えるマッチングアプリ</p>
     <div class="login">
       <%- if devise_mapping.omniauthable? %>
         <%- resource_class.omniauth_providers.each do |provider| %>
@@ -11,6 +12,7 @@
       <% end -%>
     </div>
   </div>
+  <% if false %>
   <div class="soon flexbox">
     <%= image_tag("logo_new.png") %>
     <span class="soonComment">わからない時は僕をタップしてね！</span>
@@ -21,6 +23,7 @@
       </p>
     </div>
   </div>
+  <% end %>
 </div>
 <% if false %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
