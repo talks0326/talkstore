@@ -11,7 +11,9 @@ class RecruitController < ApplicationController
 
   def choose
     @ticket.offer_id = @offer.id
-    unless @ticket.end
+    if @ticket.end == true
+      logger.debug("done")
+    else
       @ticket.end = true
       if @ticket.save
         @ticket.user_try.tickets.update_all(end: true)
