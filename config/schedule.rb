@@ -9,7 +9,7 @@ set :environment, rails_env
 
 set :output, "#{Rails.root}/log/cron.log"
 
-every 1.day, at: '9:00 am' do
+every 1.day, at: '15:05 pm' do
   # rake タスクの実行例
   rake "ticket:reset"
 end
@@ -28,3 +28,5 @@ end
 # end
 
 # Learn more: http://github.com/javan/whenever
+#反映
+#bundle exec whenever --update-crontab RAILS_ENV=production
