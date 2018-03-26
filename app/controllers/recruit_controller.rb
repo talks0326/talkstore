@@ -24,6 +24,7 @@ class RecruitController < ApplicationController
         @ticket.user_try.state_machine.transition_to(:establish_host)
         @offer.user_try.state_machine.transition_to(:establish_guest)
         UserMailer.mattching_men(@offer.user_try.user).deliver!
+        UserMailer.admin_notice(@ticket.user_try.user,@offer.user_try.user).deliver!
       end
     end
   end

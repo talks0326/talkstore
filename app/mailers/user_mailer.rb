@@ -44,4 +44,15 @@ class UserMailer < ApplicationMailer
       format.text
     end
   end
+
+  def admin_notice(woman,man)
+    @woman = woman
+    @man = man
+    mail(
+      subject: "【トークストア】#{@woman.profile.name}さんと#{@man.profile.name}さんがマッチングしました", #メールのタイトル,
+      to: "talks0326@gmail.com"
+    ) do |format|
+      format.text
+    end
+  end
 end
