@@ -11,15 +11,18 @@ class ApplyController < ApplicationController
 
   def offer
   	ticket = Ticket.find(params[:id])
-  	offer = current_user.user_tries.last.offers.build
-  	offer.ticket_id = @ticket.id
-  	if offer.save
-  		to = ticket.ticket_offers.build
-  		to.offer_id = offer.id
-  		to.save
-  		current_user.user_tries.last.state_machine.transition_to(:apply)
-      UserMailer.recruit(ticket.user_try.user).deliver!
-  	end
+    offer = Offer.where(user_try_id: current_user.user_tries.last.id,ticket_id: ticket.id)
+    if offer.bank?
+      offer = current_user.user_tries.last.offers.build
+      offer.ticket_id = @ticket.id
+      if offer.save
+        to = ticket.ticket_offers.build
+        to.offer_id = offer.id
+        to.save
+        current_user.user_tries.last.state_machine.transition_to(:apply)
+        UserMailer.recruit(ticket.user_try.user).deliver!
+      end
+    end
   	redirect_to root_path
   end
 
@@ -36,6 +39,7 @@ class ApplyController < ApplicationController
 
   def mattching_ticket
     current_user.user_tries.last.offers.each do |offer|
+      next if offer.ticket.blank?
       if offer.ticket.offer_id == offer.id
         return offer.ticket
       end
