@@ -59,6 +59,7 @@ gem 'statesman' # manage status
 gem "koala"
 gem 'jquery-countdown-rails'
 gem 'compass-rails', github: 'Compass/compass-rails' #css
+gem 'whenever'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -66,6 +67,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem "letter_opener"
 end
 
 group :development do

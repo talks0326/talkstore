@@ -102,7 +102,6 @@ Rails.application.configure do
     :domain => 'smtp.gmail.com',
     :authentication => 'login',
     :user_name => mail,
-    :password => pass,
-    :enable_starttls_auto => true
+    :password => pass
   }
 end

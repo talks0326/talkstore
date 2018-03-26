@@ -55,17 +55,17 @@ Rails.application.configure do
   mail = 'talks0326@gmail.com'
   pass = "9caW0326"
 
+  config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.default_url_options = { host: 'localhost', port: 7000 }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.smtp_settings = {
-    :enable_starttls_auto => true,
-    :address => 'smtp.gmail.com',
-    :port => '587',
-    :domain => 'smtp.gmail.com',
-    :authentication => 'login',
-    :user_name => mail,
-    :password => pass,
-    :enable_starttls_auto => true
-  }
+  #config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.raise_delivery_errors = true
+  #config.action_mailer.smtp_settings = {
+  #  :enable_starttls_auto => true,
+  #  :address => 'smtp.gmail.com',
+  ##  :port => '587',
+  #  :domain => 'smtp.gmail.com',
+  #  :authentication => 'login',
+ #  :user_name => mail,
+  #  :password => pass
+  #}
 end
