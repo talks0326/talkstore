@@ -29,7 +29,7 @@ class ApplyController < ApplicationController
   def mattching
     @ticket = mattching_ticket
     @offer = @ticket.offer
-    current_user.user_tries.last.state_machine.transition_to(:end)
+    #current_user.user_tries.last.state_machine.transition_to(:end)
   end
 
   private
