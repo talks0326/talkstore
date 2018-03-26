@@ -11,7 +11,7 @@ set :output, "#{Rails.root}/log/cron.log"
 
 every 1.day, at: '9:00 am' do
   # rake タスクの実行例
-  rake ticket:reset
+  rake "ticket:reset"
 end
 # Example:
 #
