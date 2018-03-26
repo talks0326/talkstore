@@ -52,6 +52,7 @@
 						<p><%= @offer.ticket_offers.last.ticket.time.strftime("%H:%M") + " ~ " + (@offer.ticket_offers.last.ticket.time.strftime("%H").to_i + 1).to_s + ":00" %></p>
 						<p><%= @offer.ticket_offers.last.ticket.place %></p>	
 					</div>
+					<% end %>
 					<div class="user-content flexbox">
 						<p class="name"><%= @offer.user_try.user.profile.name %>(<%= get_age(@offer.user_try.user.profile.birthday) %>)</p>
 						<p><%= @offer.user_try.user.profile.place %></p>

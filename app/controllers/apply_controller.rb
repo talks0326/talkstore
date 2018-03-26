@@ -18,7 +18,7 @@ class ApplyController < ApplicationController
   		to.offer_id = offer.id
   		to.save
   		current_user.user_tries.last.state_machine.transition_to(:apply)
-      UserMailer.recruit(current_user).deliver!
+      UserMailer.recruit(ticket.user_try.user).deliver!
   	end
   	redirect_to root_path
   end
