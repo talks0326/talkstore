@@ -26,7 +26,8 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
-
+require 'rubygems'
+require 'rmagick'
 class User < ApplicationRecord
 	include Statesman::Adapters::ActiveRecordQueries
 	devise :database_authenticatable, :registerable,
@@ -61,8 +62,13 @@ class User < ApplicationRecord
 
 		  photo = profile.build_photo
 		
-		  photo.photo_type = 2
-		  photo.url = auth.info.image
+		  photo.photo_type = 1
+		  url = auth.info.image
+		  image_url = open(url)
+		  extension = image_url.content_type.split("/")[1]
+		  temp_images = Magick::Image.from_blob(image_url.read)
+		  temp_images[0].write(url = "/tmp/#{profile.name}#{extension}")
+		  photo.data = File.open(url)
 		  photo.save
 
 		  user.user_tries.create

@@ -60,6 +60,7 @@ gem "koala"
 gem 'jquery-countdown-rails'
 gem 'compass-rails', github: 'Compass/compass-rails' #css
 gem 'whenever'
+gem "rmagick"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
