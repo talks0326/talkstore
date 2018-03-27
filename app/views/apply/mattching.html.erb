@@ -31,12 +31,16 @@
 					</div>	
 				</div>
 			</div>
-			<div class="talk_theme">
-				<p><%= @ticket.talk_theme %></p>
-			</div>
-			<div class="introduction talk_theme">
-				<p><%= @ticket.user_try.user.profile.self_introduction %></p>
-			</div>
+			<% unless @ticket.talk_theme.blank? %>
+				<div class="talk_theme">
+					<p><%= @ticket.talk_theme %></p>
+				</div>
+			<% end %>
+			<% unless @ticket.user_try.user.profile.self_introduction.blank? %>
+				<div class="introduction talk_theme">
+					<p><%= simple_format_v1((@ticket.user_try.user.profile.self_introduction) %></p>
+				</div>
+			<% end %>
 		</div>
 
 		<div class="mattching ticket-show">
@@ -63,12 +67,16 @@
 					</div>	
 				</div>
 			</div>
-			<div class="talk_theme">
-				<p><%= @offer.user_try.user.profile.default_talk_theme %></p>
-			</div>
-			<div class="introduction talk_theme">
-				<p><%= @offer.user_try.user.profile.self_introduction %></p>
-			</div>
+			<% unless @offer.user_try.user.profile.default_talk_theme.blank? %>
+				<div class="talk_theme">
+					<p><%= @offer.user_try.user.profile.default_talk_theme %></p>
+				</div>
+			<% end %>
+			<% unless @offer.user_try.user.profile.self_introduction.blank? %>
+				<div class="introduction talk_theme">
+					<p><%= simple_format_v1(@offer.user_try.user.profile.self_introduction) %></p>
+				</div>
+			<% end %>
 		</div>
 	</div>
 </div>

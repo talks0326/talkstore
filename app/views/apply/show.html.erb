@@ -41,12 +41,16 @@
 					</div>	
 				</div>
 			</div>
-			<div class="talk_theme">
-				<p><%= @ticket.talk_theme %></p>
-			</div>
-			<div class="introduction talk_theme">
-				<p><%= simple_format_v1(@ticket.user_try.user.profile.self_introduction) %></p>
-			</div>
+			<% unless @ticket.talk_theme.blank? %>
+				<div class="talk_theme">
+					<p><%= @ticket.talk_theme %></p>
+				</div>
+			<% end %>
+			<% unless @ticket.user_try.user.profile.self_introduction.blank? %>
+				<div class="introduction talk_theme">
+					<p><%= simple_format_v1(@ticket.user_try.user.profile.self_introduction) %></p>
+				</div>
+			<% end %>
 
 			<%= link_to "このユーザーに申し込む",apply_offer_path(@ticket),class: "submit" %>
 		</div>

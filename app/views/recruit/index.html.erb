@@ -38,9 +38,11 @@
 					</div>	
 				</div>
 			</div>
-			<div class="talk_theme">
-				<p><%= to.offer.user_try.user.profile.default_talk_theme %></p>
-			</div>
+			<% unless to.offer.user_try.user.profile.default_talk_theme.blank? %>
+				<div class="talk_theme">
+					<p><%= to.offer.user_try.user.profile.default_talk_theme %></p>
+				</div>
+			<% end %>
 			<% end %>
 		<% end %>
 	</div>
