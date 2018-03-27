@@ -4,6 +4,7 @@ task 'ticket:reset' => :environment do
 	user_tries = UserTry.where("created_at > ?",target_day)
 	user_tries.each do |ut|
 		p ut.inspect
+		next if ut.user.blank?
 		ut.user.user_tries.create
 		ut.user.user_tries.last.state_machine.transition_to(:pending)
 	end
