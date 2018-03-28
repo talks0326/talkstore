@@ -38,7 +38,7 @@
 			<% end %>
 			<% unless @ticket.user_try.user.profile.self_introduction.blank? %>
 				<div class="introduction talk_theme">
-					<p><%= simple_format_v1((@ticket.user_try.user.profile.self_introduction) %></p>
+					<p><%= simple_format_v1(@ticket.user_try.user.profile.self_introduction) %></p>
 				</div>
 			<% end %>
 		</div>

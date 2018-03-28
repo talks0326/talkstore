@@ -1,10 +1,11 @@
 # == Route Map
 #
 #                           Prefix Verb       URI Pattern                             Controller#Action
-#            admin_admin_dashboard GET        /admin/dashboard/index(.:format)        admin/dashboard#index
+#                  admin_dashboard GET        /admin/dashboard/index(.:format)        admin/dashboard#index
 #             admin_dashboard_show GET        /admin/dashboard/show(.:format)         admin/dashboard#show
-#                admin_admin_users GET        /admin/users/index(.:format)            admin/users#index
-#                 admin_admin_user GET        /admin/users/:id(.:format)              admin/users#show
+#                      admin_users GET        /admin/users/index(.:format)            admin/users#index
+#                       admin_user GET        /admin/users/:id(.:format)              admin/users#show
+#                admin_become_user GET        /admin/users/:id/become(.:format)       admin/users#become
 #                    pages_privacy GET        /pages/privacy(.:format)                pages#privacy
 #                      time_keeper GET        /time_keeper/:id(.:format)              time_keeper#show
 #                         time_end POST       /time_keeper/:id/time_end(.:format)     time_keeper#time_end
@@ -41,6 +42,7 @@
 #                                  PUT        /users(.:format)                        devise/registrations#update
 #                                  DELETE     /users(.:format)                        devise/registrations#destroy
 #                                  POST       /users(.:format)                        devise/registrations#create
+#                         sign_out GET        /sign_out(.:format)                     devise/sessions#destroy
 #                     profile_edit GET        /profiles/edit(.:format)                profiles#edit
 #                          profile GET        /profiles(.:format)                     profiles#show
 #                  profiles_update PATCH      /profiles/update(.:format)              profiles#update
@@ -96,7 +98,8 @@ Rails.application.routes.draw do
   root to: "top#index"
   get 'top/index'
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } 
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get "profiles/edit" => "profiles#edit",as: "profile_edit"
