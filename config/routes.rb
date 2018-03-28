@@ -1,6 +1,10 @@
 # == Route Map
 #
 #                           Prefix Verb       URI Pattern                             Controller#Action
+#            admin_admin_dashboard GET        /admin/dashboard/index(.:format)        admin/dashboard#index
+#             admin_dashboard_show GET        /admin/dashboard/show(.:format)         admin/dashboard#show
+#                admin_admin_users GET        /admin/users/index(.:format)            admin/users#index
+#                 admin_admin_user GET        /admin/users/:id(.:format)              admin/users#show
 #                    pages_privacy GET        /pages/privacy(.:format)                pages#privacy
 #                      time_keeper GET        /time_keeper/:id(.:format)              time_keeper#show
 #                         time_end POST       /time_keeper/:id/time_end(.:format)     time_keeper#time_end
@@ -56,6 +60,14 @@
 # 
 
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'dashboard/index' => "dashboard#index",as: "dashboard"
+    get 'dashboard/show'
+    get 'users/index' => "users#index",as: "users"
+    get 'users/:id' => "users#show",as: "user"
+    get "users/:id/become" => "users#becom",as: "become_user"
+  end
+
   get 'pages/privacy'
 
   get 'time_keeper/:id' => "time_keeper#show",as: "time_keeper"

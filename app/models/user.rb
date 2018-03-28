@@ -81,4 +81,8 @@ class User < ApplicationRecord
 		offers = self.user_tries.last.offers
 		offers.map{|o| o.ticket_id}.include?(ticket.id)
 	end
+
+	def get_status(start_day,end_day)
+		
+	end
 end

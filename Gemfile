@@ -61,6 +61,8 @@ gem 'jquery-countdown-rails'
 gem 'compass-rails', github: 'Compass/compass-rails' #css
 gem 'whenever'
 gem "rmagick"
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

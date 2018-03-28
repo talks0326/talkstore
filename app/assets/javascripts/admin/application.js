@@ -10,33 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= stub admin/application
 //= require rails-ujs
 //= require turbolinks
 //= require jquery
+//= require jquery
+//= require admin/bootstrap-sprockets-custom
 //= require_tree .
-
-
-window.addEventListener('load', () => {
-   document.getElementById('message').onsubmit = () => {
-       App.chat.put_message(document.getElementById('body').value);
-       return false;
-   }
-});
-
-$(document).on("change","input[type=checkbox].tickets",function(){
-	if ($(this).prop('checked')) {
-		$(this).next("label").addClass("checked");
-	}else{
-		$(this).next("label").removeClass("checked");
-	}
-});
-/*
-$(document).on("click",".soon",function(){
-	if ($("#soon_sujest").css('display') == "none"){
-		$("#soon_sujest").show();
-		$("html,body").animate({scrollTop:$('#soon_sujest').offset().top});
-	}else{
-		$("#soon_sujest").hide();
-	}
-});*/

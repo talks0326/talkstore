@@ -10,6 +10,8 @@
 #  birthday           :date
 #  default_talk_theme :string(255)
 #  self_introduction  :text(65535)
+#  work               :string(255)
+#  place              :string(255)
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #

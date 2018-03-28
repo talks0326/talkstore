@@ -1,0 +1,27 @@
+$blue: #3677a3;
+$blue-shade-2: shade($blue, 40);
+$blue-shade-1: shade($blue, 20);
+$blue-tint-1: tint($blue, 20);
+$blue-tint-2: tint($blue, 40);
+$blue-tint-3: tint($blue, 60);
+
+$green: #31947c;
+$green-shade-2: shade($green, 40);
+$green-shade-1: shade($green, 20);
+$green-tint-1: tint($green, 20);
+$green-tint-2: tint($green, 40);
+$green-tint-3: tint($green, 60);
+
+$orange: #bd853f;
+$orange-shade-2: shade($orange, 40);
+$orange-shade-1: shade($orange, 20);
+$orange-tint-1: tint($orange, 20);
+$orange-tint-2: tint($orange, 40);
+$orange-tint-3: tint($orange, 60);
+
+$red: #b9403e;
+$red-shade-2: shade($red, 40);
+$red-shade-1: shade($red, 20);
+$red-tint-1: tint($red, 20);
+$red-tint-2: tint($red, 40);
+$red-tint-3: tint($red, 60);

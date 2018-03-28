@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>名前</th>
+        <th>email</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |u| %>
+      <tr>
+        <th scope="row"><%= u.id %></th>
+          <td><%= u.profile.name if u.profile.present? %></td>
+          <td><%= u.email %></td>
+          <td><%= link_to "ログイン",admin_become_user_path(u) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
