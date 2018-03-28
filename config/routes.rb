@@ -65,7 +65,7 @@ Rails.application.routes.draw do
     get 'dashboard/show'
     get 'users/index' => "users#index",as: "users"
     get 'users/:id' => "users#show",as: "user"
-    get "users/:id/become" => "users#becom",as: "become_user"
+    get "users/:id/become" => "users#become",as: "become_user"
   end
 
   get 'pages/privacy'
