@@ -10,10 +10,34 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">プロフィール編集</th>
-          <td></td>
-          <td>taro.kirameki@example.com</td>
-          <td>09011112222</td>
+        <th scope="row">プロフィール登録</th>
+          <td><%= @start.length %></td>
+          <td><%= link_to "詳細","#" %></td>
+      </tr>
+      <tr>
+        <th scope="row">ペンディング女性</th>
+          <td><%= @pending_ticket.length %></td>
+          <td><%= link_to "詳細","#" %></td>
+      </tr>
+      <tr>
+        <th scope="row">ペンディング男性</th>
+          <td><%= @pending_apply.length %></td>
+          <td><%= link_to "詳細","#" %></td>
+      </tr>
+      <tr>
+        <th scope="row">チケット発行</th>
+          <td><%= @recruit.length %></td>
+          <td><%= link_to "詳細","#" %></td>
+      </tr>
+      <tr>
+        <th scope="row">チケット申し込み</th>
+          <td><%= @apply.length %></td>
+          <td><%= link_to "詳細","#" %></td>
+      </tr>
+      <tr>
+        <th scope="row">マッチング</th>
+          <td><%= @apply.length %></td>
+          <td><%= link_to "詳細","#" %></td>
       </tr>
     </tbody>
   </table>
