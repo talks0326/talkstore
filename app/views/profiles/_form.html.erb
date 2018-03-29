@@ -57,9 +57,11 @@
         <div class="actions">
           <%= form.submit "プロフィールを更新する" %>
         </div>
+        <% if current_user.admin? %>
         <div class="form-group">
-          <%#= link_to "管理画面へ移動する",admin_dashboard_path %>
+          <%= link_to "管理画面へ移動する",admin_dashboard_path %>
         </div>
+        <% end %>
       </div>
     <% end %>
   </div>

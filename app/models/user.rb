@@ -82,6 +82,10 @@ class User < ApplicationRecord
 		offers.map{|o| o.ticket_id}.include?(ticket.id)
 	end
 
+	def admin?
+		admin_flag
+	end
+
 	def get_status(start_day,end_day)
 		
 	end
