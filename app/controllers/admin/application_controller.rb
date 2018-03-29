@@ -4,6 +4,8 @@ class Admin::ApplicationController < ActionController::Base
   before_action :admin_check
 
   def admin_check
-  	current_user.admin?
+  	unless current_user.admin?
+  		redirect_to root_path
+  	end
   end
 end

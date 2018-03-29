@@ -83,7 +83,7 @@ class User < ApplicationRecord
 	end
 
 	def admin?
-		admin_flag
+		return self.admin_flag
 	end
 
 	def get_status(start_day,end_day)
